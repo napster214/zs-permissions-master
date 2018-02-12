@@ -1,0 +1,14 @@
+项目简介：
+    本项目基于springboot2.0开发,参照rbac规范设计权限系统
+项目结构：
+效果展示:
+技术选型:
+    springboot
+    springdatajpa
+    springsecurity
+    redisson
+软件需求:
+    jdk1.8 
+    tomcat8
+    maven3
+本地部署:

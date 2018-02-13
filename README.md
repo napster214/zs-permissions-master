@@ -18,6 +18,7 @@
     springsecurity
     redisson
     liquibase
+    log4j2-jdbc
 软件需求：
     jdk1.8 
     tomcat8

@@ -1,4 +1,4 @@
-package cn.com.zs.permissions.web.resource;
+package cn.com.zs.permissions.web.permissions;
 
 /**
  * 标题:
@@ -10,7 +10,7 @@ package cn.com.zs.permissions.web.resource;
  *
  * @author 张顺
  * @version 1.0
- * @created 2018/2/3-22:42
+ * @created 2018/2/3-22:43
  */
-public class SysResource {
+public class SysPermissionsController {
 }

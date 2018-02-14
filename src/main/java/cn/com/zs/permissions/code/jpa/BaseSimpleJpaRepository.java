@@ -1,9 +1,10 @@
 package cn.com.zs.permissions.code.jpa;
 
-import cn.com.zs.permissions.web.common.BaseEntity;
+import cn.com.zs.permissions.web.common.entity.BaseEntity;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.io.Serializable;
@@ -33,6 +34,7 @@ public class BaseSimpleJpaRepository<T extends BaseEntity,ID extends Serializabl
         super(domainClass, em);
     }
 
+    @Transactional
     @Override
     public <S extends T> S save(S entity) {
         entity.beforeSave();
@@ -41,6 +43,7 @@ public class BaseSimpleJpaRepository<T extends BaseEntity,ID extends Serializabl
         return s;
     }
 
+    @Transactional
     @Override
     public <S extends T> S saveAndFlush(S entity) {
         entity.beforeSave();
@@ -49,12 +52,13 @@ public class BaseSimpleJpaRepository<T extends BaseEntity,ID extends Serializabl
         return s;
     }
 
+    @Transactional
     @Override
-    public <S extends T> List<S> saveAll(Iterable<S> entities) {
+    public <S extends T> List<S> save(Iterable<S> entities) {
         entities.forEach(s -> {
             s.beforeSave();
         });
-        Object list = super.saveAll(entities);
+        Object list = super.save(entities);
         entities.forEach(s -> {
             s.afterSave();
         });

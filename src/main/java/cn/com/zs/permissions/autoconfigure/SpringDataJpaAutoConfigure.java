@@ -19,8 +19,8 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
  * @created 2018/2/3-22:26
  */
 @Configuration
-@EnableJpaRepositories(repositoryFactoryBeanClass = BaseSimpleJpaRepository.class,
-basePackages = "cn.com.zs.permissions.web")
+@EnableJpaRepositories(repositoryBaseClass = BaseSimpleJpaRepository.class,
+basePackages = "cn.com.zs.permissions.web.*.repository")
 @EnableSpringDataWebSupport
 public class SpringDataJpaAutoConfigure {
 }

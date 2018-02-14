@@ -1,6 +1,6 @@
 package cn.com.zs.permissions.code.jpa;
 
-import cn.com.zs.permissions.web.common.BaseEntity;
+import cn.com.zs.permissions.web.common.entity.BaseEntity;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.core.support.RepositoryFactorySupport;

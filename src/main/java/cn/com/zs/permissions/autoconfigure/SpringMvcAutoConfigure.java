@@ -1,5 +1,14 @@
 package cn.com.zs.permissions.autoconfigure;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.GsonHttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import java.util.List;
+
 /**
  * 标题: SpringMvc配置
  * <p>
@@ -12,5 +21,13 @@ package cn.com.zs.permissions.autoconfigure;
  * @version 1.0
  * @created 2018/2/3-22:36
  */
-public class SpringMvcAutoConfigure {
+@Configuration
+public class SpringMvcAutoConfigure extends WebMvcConfigurerAdapter{
+
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+        converters.add(new GsonHttpMessageConverter());
+        super.configureMessageConverters(converters);
+    }
+
 }

@@ -17,7 +17,7 @@ import com.google.gson.GsonBuilder;
  */
 public class GsonUtils {
 
-    private static final Gson GSON = new GsonBuilder().create();
+    private static final Gson GSON = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
 
     public static String toJson(Object object){
         return GSON.toJson(object);

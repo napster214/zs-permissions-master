@@ -1,7 +1,6 @@
 package cn.com.zs.permissions.autoconfigure;
 
-import cn.com.zs.permissions.code.security.SecurityProperties;
-import lombok.extern.slf4j.Slf4j;
+import cn.com.zs.permissions.code.security.SercurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -21,22 +20,23 @@ import org.springframework.web.filter.CorsFilter;
  * @created 2018/2/13-14:22
  */
 @Configuration
-@Slf4j
 public class WebAutoConfigure {
 
-    private final SecurityProperties securityProperties;
 
-    public WebAutoConfigure(SecurityProperties securityProperties) {
-        this.securityProperties = securityProperties;
+
+    private final SercurityProperties sercurityProperties;
+
+    public WebAutoConfigure(SercurityProperties sercurityProperties) {
+        this.sercurityProperties = sercurityProperties;
     }
+
 
     @Bean
     public CorsFilter corsFilter(){
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        CorsConfiguration corsConfiguration = securityProperties.getCorsConfiguration();
+        CorsConfiguration corsConfiguration = sercurityProperties.getCorsConfiguration();
         if (corsConfiguration.getAllowedOrigins() != null
                 && !corsConfiguration.getAllowedOrigins().isEmpty()){
-            log.debug("注册 CORS 过滤器");
             source.registerCorsConfiguration("/api/**",corsConfiguration);
         }
         return new CorsFilter(source);

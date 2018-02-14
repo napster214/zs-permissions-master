@@ -1,5 +1,5 @@
 项目简介：
-    本项目基于springboot2.0开发,参照rbac规范设计权限系统
+    本项目基于springboot开发,参照rbac规范设计权限系统
 项目说明：
     主要简化中小型企业开发权限系统，达到开箱即用的效果
 项目规划：
@@ -18,6 +18,7 @@
     springsecurity
     redisson
     liquibase
+    log4j2-jdbc
 软件需求：
     jdk1.8 
     tomcat8

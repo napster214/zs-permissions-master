@@ -1,6 +1,7 @@
 package cn.com.zs.permissions.web.role.entity;
 
 import cn.com.zs.permissions.web.common.entity.BaseEntity;
+import cn.com.zs.permissions.web.user.entity.SysUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 标题: 角色实体
@@ -40,8 +43,15 @@ public class SysRole extends BaseEntity<String> {
     @Column(name = "status")
     private Integer status;
 
-    @Column(name = "desc")
-    private String desc;
+    @Column(name = "description")
+    private String description;
+
+    @ManyToMany(mappedBy = "roleSet")
+//    @JoinTable(name = "sys_user_role",joinColumns = {
+//            @JoinColumn(name = "role_id")},inverseJoinColumns = {
+//            @JoinColumn(name = "user_id")
+//    })
+    private Set<SysUser> userSet = new HashSet<>();
 
     @Override
     public void setId(String id) {

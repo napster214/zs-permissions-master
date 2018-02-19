@@ -3,8 +3,11 @@ package cn.com.zs.permissions.web.user.controller;
 import cn.com.zs.permissions.web.common.controller.BaseController;
 import cn.com.zs.permissions.web.user.service.SysUserService;
 import cn.com.zs.permissions.web.user.entity.SysUser;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +28,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/user")
+@Slf4j
 public class SysUserController extends BaseController{
 
     private final SysUserService sysUserService;
@@ -41,7 +45,8 @@ public class SysUserController extends BaseController{
     }
 
     @GetMapping("/serach")
-    public ResponseEntity<Page<SysUser>> serach(SysUser sysUser, Pageable pageable){
+    public ResponseEntity<Page<SysUser>> serach(SysUser sysUser,Pageable pageable){
+        System.out.println("*************成功************");
         return null;
     }
 

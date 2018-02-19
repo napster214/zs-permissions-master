@@ -1,9 +1,12 @@
 package cn.com.zs.permissions.web.org.repository;
 
+import cn.com.zs.permissions.web.common.repository.BaseRepository;
+import cn.com.zs.permissions.web.org.entity.SysOrg;
+
 /**
- * 标题:
+ * 标题: SysOrgRepository
  * <p>
- * 描述:
+ * 描述: SysOrgRepository
  * <p>
  * 版权: Copyright (c) 2018
  * <p>
@@ -12,5 +15,5 @@ package cn.com.zs.permissions.web.org.repository;
  * @version 1.0
  * @created 2018/2/3-22:44
  */
-public class SysOrgRepository {
+public interface SysOrgRepository extends BaseRepository<SysOrg,String>{
 }

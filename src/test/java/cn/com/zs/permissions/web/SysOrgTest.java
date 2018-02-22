@@ -1,8 +1,15 @@
 package cn.com.zs.permissions.web;
 
+import cn.com.zs.permissions.web.org.controller.SysOrgController;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 /**
  * 标题:
@@ -19,4 +26,30 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 @RunWith(SpringRunner.class)
 public class SysOrgTest {
+
+    @Autowired
+    private SysOrgController sysOrgController;
+
+    private MockMvc mockMvc;
+
+    @Before
+    public void setUp(){
+        mockMvc = MockMvcBuilders.standaloneSetup(sysOrgController).build();
+    }
+
+
+    @Test
+    public void saveTest(){
+
+    }
+
+    @Test
+    public void deleteTest(){
+
+    }
+
+    @Test
+    public void serachTest(){
+
+    }
 }

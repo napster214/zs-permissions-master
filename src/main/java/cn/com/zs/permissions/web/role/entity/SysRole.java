@@ -1,6 +1,8 @@
 package cn.com.zs.permissions.web.role.entity;
 
+import cn.com.zs.permissions.web.apply.entity.SysApply;
 import cn.com.zs.permissions.web.common.entity.BaseEntity;
+import cn.com.zs.permissions.web.org.entity.SysOrg;
 import cn.com.zs.permissions.web.user.entity.SysUser;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -47,11 +49,15 @@ public class SysRole extends BaseEntity<String> {
     private String description;
 
     @ManyToMany(mappedBy = "roleSet")
-//    @JoinTable(name = "sys_user_role",joinColumns = {
-//            @JoinColumn(name = "role_id")},inverseJoinColumns = {
-//            @JoinColumn(name = "user_id")
-//    })
     private Set<SysUser> userSet = new HashSet<>();
+
+    @OneToOne(targetEntity = SysOrg.class)
+    @JoinColumn(name = "org_id")
+    private SysOrg sysOrg;
+
+    @OneToOne(targetEntity = SysApply.class)
+    @JoinColumn(name = "apply_id")
+    private SysApply sysApply;
 
     @Override
     public void setId(String id) {

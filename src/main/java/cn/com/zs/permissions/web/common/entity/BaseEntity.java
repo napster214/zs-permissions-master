@@ -1,6 +1,7 @@
 package cn.com.zs.permissions.web.common.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -13,7 +14,6 @@ import javax.persistence.Column;
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
-import java.time.Instant;
 import java.util.Date;
 
 /**
@@ -29,6 +29,7 @@ import java.util.Date;
  * @created 2018/2/3-22:45
  */
 @MappedSuperclass
+@Audited
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseEntity<PK extends Serializable> implements Persistable<PK>{
 

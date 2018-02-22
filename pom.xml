@@ -26,9 +26,16 @@
 		<problem-spring-web.version>0.22.0</problem-spring-web.version>
 		<gson.version>2.8.2</gson.version>
 		<jjwt.version>0.9.0</jjwt.version>
+		<redisson.version>3.6.1</redisson.version>
 	</properties>
 
 	<dependencies>
+
+		<dependency>
+			<groupId>org.redisson</groupId>
+			<artifactId>redisson</artifactId>
+			<version>${redisson.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
@@ -52,6 +59,11 @@
 			<!--<groupId>org.springframework.boot</groupId>-->
 			<!--<artifactId>spring-boot-starter-webflux</artifactId>-->
 		<!--</dependency>-->
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -129,6 +141,11 @@
 			<artifactId>spring-restdocs-mockmvc</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-envers</artifactId>
+            <version>5.2.10.Final</version>
+        </dependency>
 
         <!--<dependency>-->
 			<!--<groupId>io.projectreactor</groupId>-->

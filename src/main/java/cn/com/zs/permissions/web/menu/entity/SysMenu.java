@@ -1,5 +1,6 @@
 package cn.com.zs.permissions.web.menu.entity;
 
+import cn.com.zs.permissions.web.apply.entity.SysApply;
 import cn.com.zs.permissions.web.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -54,6 +55,9 @@ public class SysMenu extends BaseEntity<String>{
 
     @Column(name = "menu_status")
     private Integer menuStatus;
+
+    @OneToOne
+    private SysApply sysApply;
 
     @Override
     public void setId(String id) {

@@ -9,9 +9,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     show-sql: true
-    open-in-view: false
+    open-in-view: true
 
 
 logging:
   level: debug
+
+
+permissions:
+  redis:
+    redisAddress: redis://47.52.207.143:6379
 

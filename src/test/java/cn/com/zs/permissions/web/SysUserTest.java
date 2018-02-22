@@ -1,8 +1,12 @@
 package cn.com.zs.permissions.web;
 
 import cn.com.zs.permissions.utils.GsonUtils;
+import cn.com.zs.permissions.web.apply.entity.SysApply;
+import cn.com.zs.permissions.web.apply.service.SysApplyService;
 import cn.com.zs.permissions.web.menu.controller.SysMenuController;
 import cn.com.zs.permissions.web.org.controller.SysOrgController;
+import cn.com.zs.permissions.web.org.entity.SysOrg;
+import cn.com.zs.permissions.web.org.service.SysOrgService;
 import cn.com.zs.permissions.web.role.controller.SysRoleController;
 import cn.com.zs.permissions.web.role.entity.SysRole;
 import cn.com.zs.permissions.web.role.service.SysRoleService;
@@ -57,6 +61,12 @@ public class SysUserTest {
 
     @Autowired
     private SysRoleService sysRoleService;
+
+    @Autowired
+    private SysApplyService sysApplyService;
+
+    @Autowired
+    private SysOrgService sysOrgService;
 
     @Autowired
     private PageableHandlerMethodArgumentResolver pageableArgumentResolver;
@@ -116,17 +126,39 @@ public class SysUserTest {
         sysUser.setStatus(1);
         Set<SysRole> roleSet = new HashSet<>();
         roleSet.add(buildSysRole());
-        sysUser.setRoleSet(roleSet);
+       // sysUser.setRoleSet(roleSet);
         return sysUser;
     }
 
     private SysRole buildSysRole(){
+        SysApply sysApply = sysApplyService.save(buildApply());
+        SysOrg sysOrg = sysOrgService.save(buildOrg());
         SysRole sysRole = new SysRole();
         sysRole.setDescription("1");
         sysRole.setRoleName("1");
         sysRole.setStatus(1);
+        sysRole.setSysOrg(sysOrg);
+        sysRole.setSysApply(sysApply);
         sysRoleService.save(sysRole);
         return sysRole;
+    }
+
+    private SysOrg buildOrg(){
+        SysOrg sysOrg = new SysOrg();
+        sysOrg.setOrgName("权限系统");
+        sysOrg.setOrgCode("qxxt");
+        sysOrg.setOrgStatus(1);
+        sysOrg.setOrgType(1);
+        sysOrg.setDescription("权限系统");
+        return sysOrg;
+    }
+
+    private SysApply buildApply(){
+        SysApply sysApply = new SysApply();
+        sysApply.setApplyName("权限系统");
+        sysApply.setApplyCode("qxxt");
+        sysApply.setApplyStatus(1);
+        return sysApply;
     }
 
 

@@ -4,10 +4,12 @@ import cn.com.zs.permissions.web.common.entity.BaseEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.GenericGenerator;
 
-
 import javax.persistence.*;
+
 
 /**
  * 标题: 机构实体

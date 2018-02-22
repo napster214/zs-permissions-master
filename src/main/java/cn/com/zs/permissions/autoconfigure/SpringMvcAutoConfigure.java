@@ -40,6 +40,5 @@ public class SpringMvcAutoConfigure extends WebMvcConfigurerAdapter{
         PageableHandlerMethodArgumentResolver pageableHandlerMethodArgumentResolver =
                 new PageableHandlerMethodArgumentResolver();
         argumentResolvers.add(pageableHandlerMethodArgumentResolver);
-       //argumentResolvers.add(new SortHandlerMethodArgumentResolver());
     }
 }

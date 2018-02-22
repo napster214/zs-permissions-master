@@ -6,6 +6,7 @@ import cn.com.zs.permissions.web.user.entity.SysUser;
 import cn.com.zs.permissions.web.user.repository.SysUserRepository;
 import cn.com.zs.permissions.web.user.service.SysUserService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,6 +37,13 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser,String> implemen
     @Override
     public BaseRepository<SysUser, String> getRepository() {
         return sysUserRepository;
+    }
+
+
+    @Cacheable(value = "commonCache",key = "#userName")
+    @Override
+    public SysUser findByUserName(String userName) {
+        return sysUserRepository.findByUserName(userName);
     }
 
     @Override

@@ -19,5 +19,7 @@ import org.springframework.data.domain.Pageable;
  */
 public interface SysUserService extends BaseService<SysUser,String>{
 
+    SysUser findByUserName(String userName);
+
     Page<SysUser> serach(SysUser sysUser, Pageable pageable);
 }

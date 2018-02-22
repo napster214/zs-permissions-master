@@ -7,8 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-
 import javax.persistence.*;
+
 
 /**
  * 标题: 菜单实体
@@ -56,7 +56,8 @@ public class SysMenu extends BaseEntity<String>{
     @Column(name = "menu_status")
     private Integer menuStatus;
 
-    @OneToOne
+    @OneToOne(targetEntity = SysApply.class)
+    @JoinColumn(name = "apply_id")
     private SysApply sysApply;
 
     @Override

@@ -16,4 +16,7 @@ import cn.com.zs.permissions.web.user.entity.SysUser;
  * @created 2018/2/3-22:41
  */
 public interface SysUserRepository extends BaseRepository<SysUser,String>{
+
+    SysUser findByUserName(String userName);
+
 }

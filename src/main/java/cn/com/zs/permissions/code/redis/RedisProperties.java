@@ -1,5 +1,6 @@
 package cn.com.zs.permissions.code.redis;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,6 +17,9 @@ import org.springframework.context.annotation.Configuration;
  * @created 2018/2/20-1:07
  */
 @Configuration
-@ConfigurationProperties(prefix = "zs.redis",ignoreInvalidFields = false)
+@ConfigurationProperties(prefix = "permissions.redis",ignoreInvalidFields = false)
+@Data
 public class RedisProperties {
+
+    private String redisAddress = "redis://127.0.0.1:3306";
 }

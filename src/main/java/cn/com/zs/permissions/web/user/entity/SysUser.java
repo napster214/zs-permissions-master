@@ -92,7 +92,7 @@ public class SysUser extends BaseEntity<String>{
     @JoinTable(name = "sys_user_role",joinColumns =
             @JoinColumn(name = "user_id"),inverseJoinColumns =
             @JoinColumn(name = "role_id"))
-    private Set<SysRole> roleSet = new HashSet<>();
+    private Set<SysRole> roleSet =  new HashSet<>();
 
     @Override
     public void setId(String id) {

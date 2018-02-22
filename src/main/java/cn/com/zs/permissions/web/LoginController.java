@@ -1,5 +1,6 @@
 package cn.com.zs.permissions.web;
 
+import cn.com.zs.permissions.web.menu.service.SysMenuService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,12 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping
 public class LoginController {
+
+    private final SysMenuService sysMenuService;
+
+    public LoginController(SysMenuService sysMenuService) {
+        this.sysMenuService = sysMenuService;
+    }
 
     @PostMapping("/login")
     public ResponseEntity login(@Valid @RequestBody LoginVo loginVo){

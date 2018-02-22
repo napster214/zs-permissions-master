@@ -40,7 +40,7 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser,String> implemen
     }
 
 
-    @Cacheable(value = "commonCache",key = "#userName")
+    @Cacheable(value = "commonCaches")
     @Override
     public SysUser findByUserName(String userName) {
         return sysUserRepository.findByUserName(userName);

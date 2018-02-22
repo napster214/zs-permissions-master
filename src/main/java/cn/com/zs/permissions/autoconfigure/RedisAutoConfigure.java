@@ -38,6 +38,7 @@ public class RedisAutoConfigure {
 
     @Bean
     public RedissonClient redissonClient(){
+        System.out.println("redis地址："+redisProperties.getRedisAddress());
         Config config = new Config();
         config.useSingleServer()
                 .setAddress(redisProperties.getRedisAddress());

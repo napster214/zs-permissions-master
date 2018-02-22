@@ -3,6 +3,7 @@ package cn.com.zs.permissions.web.user.entity;
 import cn.com.zs.permissions.web.common.entity.BaseEntity;
 import cn.com.zs.permissions.web.role.entity.SysRole;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -88,6 +89,7 @@ public class SysUser extends BaseEntity<String>{
     private String description;
 
 
+    @JsonIgnore
     @ManyToMany(cascade = {CascadeType.MERGE,CascadeType.REMOVE})
     @JoinTable(name = "sys_user_role",joinColumns =
             @JoinColumn(name = "user_id"),inverseJoinColumns =

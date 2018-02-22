@@ -1,26 +1,22 @@
-**项目简介：**
-    本项目基于springboot开发,参照rbac规范设计权限系统
-**项目说明：**
-    主要简化中小型企业开发权限系统，达到开箱即用的效果
-**项目规划：**
-    暂时规划三个版本发布
-    1.0版本
-        实现菜单级权限控制``
-    2.0版本
-        实现按钮级权限控制,maven多模块应用
-    3.0版本
-        实现简单数据级权限，以及基于oauth2协议单点登录
-**项目结构：**
-**效果展示：**
-**技术选型：**
-    springboot
-    springdatajpa
-    springsecurity
-    redisson
-    liquibase
-    log4j2-jdbc
-**软件需求：**
-    jdk1.8 
-    tomcat8
-    maven3
+**项目简介：**<br>
+    本项目基于springboot开发,参照rbac规范设计权限系统<br>
+**项目说明：**<br>
+    主要简化中小型企业开发权限系统，达到开箱即用的效果<br>
+**项目规划：**<br>
+    1.权限：菜单级、按钮级、数据级等三级权限<br>
+    2.模块化应用<br>
+    3.oauth2单点登录<br>
+**项目结构：**<br>
+**效果展示：**<br>
+**技术选型：**<br>
+    springboot<br>
+    springdatajpa<br>
+    springsecurity<br>
+    redisson<br>
+    liquibase<br>
+    log4j2-jdbc<br>
+**软件需求：**<br>
+    jdk1.8<br>
+    tomcat8<br>
+    maven3<br>
 **本地部署：**

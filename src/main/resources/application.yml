@@ -11,12 +11,10 @@ spring:
     show-sql: true
     open-in-view: true
 
-
-logging:
-  level: debug
-
-
 permissions:
   redis:
     redisAddress: redis://47.52.207.143:6379
+
+logging:
+  config: classpath:logback-spring.xml
 

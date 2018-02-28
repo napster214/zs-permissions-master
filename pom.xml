@@ -163,7 +163,19 @@
 	</dependencies>
 
 	<build>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes></includes>
+			</resource>
+		</resources>
+
 		<plugins>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -175,77 +187,34 @@
 				<version>3.5.1</version>
 			</plugin>
 
-			<plugin>
-				<groupId>org.asciidoctor</groupId>
-				<artifactId>asciidoctor-maven-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>generate-docs</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>process-asciidoc</goal>
-						</goals>
-						<configuration>
-							<sourceDocumentName>index.adoc</sourceDocumentName>
-							<backend>html</backend>
-							<attributes>
-								<snippets>${project.build.directory}/snippets</snippets>
-							</attributes>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-
 		</plugins>
 	</build>
 
-	<repositories>
-		<repository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>spring-snapshots</id>
-			<name>Spring Snapshots</name>
-			<url>https://repo.spring.io/snapshot</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-		<pluginRepository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
 
 	<profiles>
 		<profile>
 			<id>dev</id>
+			<properties>
+				<profiles.active>dev</profiles.active>
+				<deploy.url>application.yml</deploy.url>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 		</profile>
 		<profile>
 			<id>test</id>
+			<properties>
+				<profiles.active>test</profiles.active>
+				<deploy.url>application-test.yml</deploy.url>
+			</properties>
 		</profile>
 		<profile>
 			<id>prod</id>
+			<properties>
+				<profiles.active>prod</profiles.active>
+				<deploy.url>application-prod.yml</deploy.url>
+			</properties>
 		</profile>
 	</profiles>
 

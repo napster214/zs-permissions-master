@@ -2,9 +2,11 @@ package cn.com.zs.permissions.autoconfigure;
 
 import cn.com.zs.permissions.code.jpa.BaseJpaRepositoryFactory;
 import cn.com.zs.permissions.code.jpa.BaseSimpleJpaRepository;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor;
 
 /**
  * 标题: SpringDataJpa配置
@@ -23,4 +25,5 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 basePackages = "cn.com.zs.permissions.web.*.repository")
 @EnableSpringDataWebSupport
 public class SpringDataJpaAutoConfigure {
+
 }

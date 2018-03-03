@@ -1,16 +1,22 @@
 package cn.com.zs.permissions.autoconfigure;
 
+import cn.com.zs.permissions.code.json.CustomBeanSerializerModifier;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.data.web.SortHandlerMethodArgumentResolver;
+import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.GsonHttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -40,5 +46,18 @@ public class SpringMvcAutoConfigure extends WebMvcConfigurerAdapter{
         PageableHandlerMethodArgumentResolver pageableHandlerMethodArgumentResolver =
                 new PageableHandlerMethodArgumentResolver();
         argumentResolvers.add(pageableHandlerMethodArgumentResolver);
+    }
+
+    @Bean
+    public MappingJackson2HttpMessageConverter messageConverter(){
+        MappingJackson2HttpMessageConverter messageConverter =
+                new MappingJackson2HttpMessageConverter();
+        ObjectMapper objectMapper = messageConverter.getObjectMapper();
+        objectMapper.setSerializerFactory(objectMapper.getSerializerFactory().withSerializerModifier(new CustomBeanSerializerModifier()));
+        List<MediaType> list = new ArrayList<>();
+        list.add(MediaType.TEXT_HTML);
+        list.add(MediaType.APPLICATION_JSON);
+        messageConverter.setSupportedMediaTypes(list);
+        return messageConverter;
     }
 }

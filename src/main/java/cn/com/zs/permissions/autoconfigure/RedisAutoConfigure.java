@@ -40,7 +40,7 @@ public class RedisAutoConfigure {
     public RedissonClient redissonClient(){
         Config config = new Config();
         config.useSingleServer()
-                .setAddress(redisProperties.getRedisAddress());
+                .setAddress(redisProperties.getRedisAddress()).setDatabase(1);
         return Redisson.create(config);
     }
 

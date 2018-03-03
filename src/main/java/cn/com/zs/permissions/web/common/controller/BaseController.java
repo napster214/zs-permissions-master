@@ -19,6 +19,6 @@ import java.util.Date;
  * @version 1.0
  * @created 2018/2/3-22:46
  */
-public class BaseController {
+public abstract class BaseController {
 
 }

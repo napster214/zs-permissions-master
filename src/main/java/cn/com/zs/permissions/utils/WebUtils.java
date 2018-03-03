@@ -19,7 +19,7 @@ import java.io.OutputStream;
 public class WebUtils {
 
     public static void writeJson(HttpServletResponse response,byte[] byteArray) throws IOException {
-        response.setHeader("Content-Type","tegxt/html;charset=utf-8");
+        response.setHeader("Content-Type","text/html;charset=utf-8");
         OutputStream outputStream = response.getOutputStream();
         outputStream.write(byteArray,0,byteArray.length);
         outputStream.flush();

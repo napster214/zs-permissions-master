@@ -6,7 +6,7 @@
 	<groupId>cn.com.zs.permissions</groupId>
 	<artifactId>zs-permissions-master</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>zs-permissions-master</name>
 	<description>Demo project for Spring Boot</description>
@@ -88,11 +88,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.liquibase</groupId>
-			<artifactId>liquibase-core</artifactId>
-		</dependency>
-
-		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
@@ -163,14 +158,25 @@
 	</dependencies>
 
 	<build>
-
+		<!--配置Maven 对resource文件 过滤 -->
+		<filters>
+			<filter>src/main/resources/application-${profiles.active}.yml</filter>
+		</filters>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
+				<excludes>
+					<exclude>**/*.yml</exclude>
+					<exclude>**/*.xml</exclude>
+				</excludes>
 			</resource>
 			<resource>
 				<directory>src/main/resources</directory>
-				<includes></includes>
+				<includes>
+					<include>**/*.yml</include>
+					<include>**/logback-spring-${profiles.active}.xml</include>
+				</includes>
+				<filtering>true</filtering>
 			</resource>
 		</resources>
 
@@ -196,7 +202,6 @@
 			<id>dev</id>
 			<properties>
 				<profiles.active>dev</profiles.active>
-				<deploy.url>application.yml</deploy.url>
 			</properties>
 			<activation>
 				<activeByDefault>true</activeByDefault>
@@ -206,14 +211,12 @@
 			<id>test</id>
 			<properties>
 				<profiles.active>test</profiles.active>
-				<deploy.url>application-test.yml</deploy.url>
 			</properties>
 		</profile>
 		<profile>
 			<id>prod</id>
 			<properties>
 				<profiles.active>prod</profiles.active>
-				<deploy.url>application-prod.yml</deploy.url>
 			</properties>
 		</profile>
 	</profiles>

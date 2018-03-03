@@ -22,8 +22,6 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class WebAutoConfigure {
 
-
-
     private final SercurityProperties sercurityProperties;
 
     public WebAutoConfigure(SercurityProperties sercurityProperties) {

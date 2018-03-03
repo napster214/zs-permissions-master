@@ -30,12 +30,9 @@ public class EmailServiceImpl implements EmailService{
 
     private final MessageSource messageSource;
 
-    private final SpringTemplateLoader templateLoader;
-
-    public EmailServiceImpl(JavaMailSender javaMailSender, MessageSource messageSource, SpringTemplateLoader templateLoader) {
+    public EmailServiceImpl(JavaMailSender javaMailSender, MessageSource messageSource) {
         this.javaMailSender = javaMailSender;
         this.messageSource = messageSource;
-        this.templateLoader = templateLoader;
     }
 
     @Override

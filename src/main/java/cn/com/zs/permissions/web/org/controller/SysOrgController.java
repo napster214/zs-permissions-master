@@ -3,6 +3,7 @@ package cn.com.zs.permissions.web.org.controller;
 import cn.com.zs.permissions.web.common.controller.BaseController;
 import cn.com.zs.permissions.web.org.entity.SysOrg;
 import cn.com.zs.permissions.web.org.service.SysOrgService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/org")
+@Slf4j
 public class SysOrgController extends BaseController{
 
     private final SysOrgService sysOrgService;

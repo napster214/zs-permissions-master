@@ -3,6 +3,7 @@ package cn.com.zs.permissions.web.menu.controller;
 import cn.com.zs.permissions.web.common.controller.BaseController;
 import cn.com.zs.permissions.web.menu.entity.SysMenu;
 import cn.com.zs.permissions.web.menu.service.SysMenuService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,9 +24,11 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/menu")
+@Slf4j
 public class SysMenuController extends BaseController{
 
     private final SysMenuService sysMenuService;
+
 
     @PostMapping("/save")
     public ResponseEntity<SysMenu> save(@Valid @RequestBody SysMenu sysMenu){

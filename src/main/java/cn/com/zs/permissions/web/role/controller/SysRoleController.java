@@ -2,6 +2,7 @@ package cn.com.zs.permissions.web.role.controller;
 
 import cn.com.zs.permissions.web.role.entity.SysRole;
 import cn.com.zs.permissions.web.role.service.SysRoleService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -25,6 +26,7 @@ import javax.validation.Valid;
  */
 @RestController
 @RequestMapping("/api/role")
+@Slf4j
 public class SysRoleController {
 
     private final SysRoleService sysRoleService;

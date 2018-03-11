@@ -39,11 +39,13 @@ public class SysApplyController extends BaseController{
         return ResponseEntity.ok(sysApply);
     }
 
+
     @GetMapping("/delete/{applyId}")
     public ResponseEntity delete(@PathVariable String applyId){
         sysApplyService.delete(applyId);
         return new ResponseEntity(HttpStatus.OK);
     }
+
 
     @GetMapping("/serach")
     public ResponseEntity<Page<SysApply>> serach(@Valid SysApply sysApply, Pageable pageable){
